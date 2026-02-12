@@ -1,0 +1,12 @@
+automations:
+  # Trigger AI Code Review on all non-draft PRs
+  ai_code_review:
+    if:
+      - {{ not pr.draft }}
+      - {{ pr.labels | match(term="needs-review") }} # Optional: only review if labeled
+    run:
+      - action: code-review@v1
+        args:
+          # This tells the AI how to behave (critical for "Rules" coverage)
+          guidelines: {{ "REVIEW_RULES.md" | readFile | dump }}
+          issues_limit: 5
