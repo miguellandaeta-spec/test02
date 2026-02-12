@@ -2,7 +2,7 @@
 capex_report.py
 
 Reads a CSV file and generates a CAPEX report based on the `capex` column.
-
+lots of more value
 Usage:
     python capex_report.py --input data.csv --output report.csv [--group-by project]
 
